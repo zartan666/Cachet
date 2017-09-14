@@ -24,7 +24,10 @@
                         <div class="col-xs-6">
                             <i class="{{ $incident->icon }}"></i> <a href="{{ cachet_route('dashboard.incidents.edit', [$incident->id]) }}"><strong>{{ $incident->name }}</strong></a> <span class="badge badge-info">{{ trans_choice('dashboard.incidents.updates', $incident->updates()->count()) }}</span>
                             @if($incident->message)
-                            <p><small>{{ Str::words($incident->message, 5) }}</small></p>
+                            <p>{{ Str::words($incident->message, 5) }}</p>
+                            @endif
+                            @if ($incident->user)
+                            <p><small>&mdash; {{ trans('dashboard.incidents.reported_by', ['user' => $incident->user->username]) }}</small></p>
                             @endif
                         </div>
                         <div class="col-xs-6 text-right">
