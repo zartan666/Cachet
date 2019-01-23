@@ -16,12 +16,26 @@ return [
 
     // Incidents
     'incidents' => [
-        'title'                    => 'Incidenten &amp; planning',
+        'title'                    => 'Incidenten & Onderhoud',
         'incidents'                => 'Incidenten',
-        'logged'                   => '{0} Proficiat, er zijn geen incidenten.|Er heeft zich één incident voorgedaan.|Er zijn <strong>:count</strong> incidenten gerapporteerd.',
+        'logged'                   => '{0}Top, er zijn geen incidenten.|[1]Je hebt één incident gerapporteerd.|[2,*]Je hebt <strong>:count</strong> incidenten gerapporteerd.',
         'incident-create-template' => 'Maak template',
         'incident-templates'       => 'Incident Sjablonen',
-        'updates'                  => '{0} Geen updates|Één update|:count updates',
+        'updates'                  => [
+            'title'   => 'Incident updates voor :incident',
+            'count'   => '{0}Geen updates|[1]Één update|[2]Twee updates|[3,*]Meerdere updates',
+            'add'     => [
+                'title'   => 'Maak een nieuwe incident update',
+                'success' => 'Je nieuwe incident update is aangemaakt.',
+                'failure' => 'Er is iets misgegaan met de incident update.',
+            ],
+            'edit' => [
+                'title'   => 'Incident update bewerken',
+                'success' => 'De incident update is bijgewerkt.',
+                'failure' => 'Er is een fout opgetreden bij het wijzigen van de incident update',
+            ],
+        ],
+        'reported_by'              => 'Gemeld door: gebruiker',
         'add'                      => [
             'title'   => 'Meld een incident',
             'success' => 'Incident toegevoegd.',
@@ -36,18 +50,13 @@ return [
             'success' => 'Het incident is verwijderd en zal niet meer worden weergegeven op de statuspagina.',
             'failure' => 'Het incident kon niet worden verwijderd, probeer het opnieuw.',
         ],
-        'update' => [
-            'title'    => 'Maak een nieuwe incident update',
-            'subtitle' => 'Voeg een update toe aan <strong>:incident</strong>',
-            'success'  => 'Update toegevoegd.',
-        ],
 
         // Incident templates
         'templates' => [
             'title' => 'Incident Sjablonen',
             'add'   => [
                 'title'   => 'Creëer een incident template',
-                'message' => 'Voeg een incident template toe.',
+                'message' => 'Create your first incident template.',
                 'success' => 'Je nieuwe incident template is aangemaakt.',
                 'failure' => 'Er is iets misgegaan met de incident template.',
             ],
@@ -66,21 +75,21 @@ return [
     // Incident Maintenance
     'schedule' => [
         'schedule'     => 'Gepland onderhoud',
-        'logged'       => '{0} Er zijn geen schema\'s, goed werk.|Je hebt één schema aangemaakt.|Je hebt <strong>:count</strong> schema\'s aangegeven.',
+        'logged'       => '{0}Er zijn geen geplande onderhoudsmomenten.|[1]Er is één onderhoudsmoment gepland.|[2,*]Er zijn <strong>:count</strong> geplande onderhoudsmomenten.',
         'scheduled_at' => 'Gepland op :timestamp',
         'add'          => [
             'title'   => 'Gepland onderhoud toevoegen',
-            'success' => 'Planning toegevoegd.',
+            'success' => 'Onderhoud toegevoegd.',
             'failure' => 'Er ging iets mis met het toevoegen van het geplande onderhoud, probeer het opnieuw.',
         ],
         'edit' => [
             'title'   => 'Gepland onderhoud bewerken',
-            'success' => 'Planning is bijgewerkt!',
+            'success' => 'Gepland onderhoud is bijgewerkt!',
             'failure' => 'Er ging iets mis met het wijzigen van het geplande onderhoud, probeer het opnieuw.',
         ],
         'delete' => [
-            'success' => 'De planning is verwijderd en zal niet worden getoond op jouw statuspagina.',
-            'failure' => 'De planning kon niet worden verwijderd, probeer het opnieuw.',
+            'success' => 'Het geplande onderhoud is verwijderd en zal niet worden getoond op de statuspagina.',
+            'failure' => 'Het geplande onderhoud kon niet worden verwijderd, probeer het opnieuw.',
         ],
     ],
 
@@ -147,13 +156,15 @@ return [
     ],
     // Subscribers
     'subscribers' => [
-        'subscribers'      => 'Abonnees',
-        'description'      => 'Abonnees ontvangen een email update wanneer er incidenten zijn gemaakt of componenten worden bijgewerkt.',
-        'verified'         => 'Geverifiëerd',
-        'not_verified'     => 'Niet geverifiëerd',
-        'subscriber'       => ':email, geabonneerd op :date',
-        'no_subscriptions' => 'Geabonneerd op alle updates',
-        'add'              => [
+        'subscribers'          => 'Abonnees',
+        'description'          => 'Abonnees ontvangen een email update wanneer er incidenten zijn gemaakt of componenten worden bijgewerkt.',
+        'description_disabled' => 'Om deze functie te gebruiken, moet u mensen aanmelden voor meldingen toestaan.',
+        'verified'             => 'Geverifiëerd',
+        'not_verified'         => 'Niet geverifiëerd',
+        'subscriber'           => ':email, geabonneerd op :date',
+        'no_subscriptions'     => 'Geabonneerd op alle updates',
+        'global'               => 'Globaal geabonneerd',
+        'add'                  => [
             'title'   => 'Voeg een nieuwe abonnee toe',
             'success' => 'Abonnee is toegevoegd!',
             'failure' => 'Er ging iets mis met het toevoegen van de abonnee, probeer het opnieuw.',
@@ -216,11 +227,11 @@ return [
             'footer'        => 'Aangepaste voettekst HTML',
         ],
         'mail' => [
-            'mail'  => 'E-mail',
+            'mail'  => 'Mail',
             'test'  => 'Test',
             'email' => [
-                'subject' => 'Test notificatie van Cachet',
-                'body'    => 'Dit is een test notificatie van Cachet.',
+                'subject' => 'Test notification from Cachet',
+                'body'    => 'This is a test notification from Cachet.',
             ],
         ],
         'security' => [
